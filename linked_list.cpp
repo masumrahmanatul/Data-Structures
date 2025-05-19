@@ -6,39 +6,46 @@ struct Node
     int data;
     Node* next;
 };
-struct Node* head; //global variable, can be accessed anywhere.
+struct Node* head;
 
-void Insert(int x)
+void Insert(int data, int n)
 {
-    struct Node* temp = (Node*)malloc(sizeof(struct Node)); //returning a pointer which will store in the variable that is pointer to 'Node'
-    (*temp).data = x; //dereferencing to access the fields of the node.
-    (*temp).next = head; //dereferencing to access the fields of the node.
-    head = temp;
+    Node* temp1 = new Node();
+    (*temp1).data = data;
+    (*temp1).next = NULL;
+    if(n == 1)
+    {
+        (*temp1).next = head;
+        head = temp1;
+        return;
+    }
+
+    Node* temp2 = head;
+    for(int i = 0;i < n-2;i++)
+    {
+        temp2 = (*temp2).next;
+    }
+    (*temp1).next = (*temp2).next;
+    (*temp2).next = temp1;
 }
 
 void Print()
 {
-    struct Node* temp;
-    cout<<"List is: ";
+    Node* temp = head;
     while(temp != NULL)
     {
         cout<<(*temp).data<<" ";
         temp = (Node*)(*temp).next;
     }
+    cout<<endl;
 }
 
 int main()
 {
-    head = NULL; //empty list.
-    int n, x;
-    cout<<"How many numbers?: "; //taking input on how many numbers we will take in the list.
-    cin>>n;
-    for(int i = 0;i < n;i++)
-    {
-        cout<<"Enter the number: ";
-        cin>>x;
-        Insert(x); //a function to insert the value just taken as input.
-        Print(); //print the list using a separate function after each input.
-        cout<<endl;
-    }
+    head = NULL;
+    Insert(2, 1);
+    Insert(3, 2);
+    Insert(4, 1);
+    Insert(5, 2);
+    Print();
 }
