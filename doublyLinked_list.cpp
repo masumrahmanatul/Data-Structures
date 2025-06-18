@@ -72,6 +72,5 @@ int main()
     InsertAthead(1);
     Print();
     ReversePrint();
-
     return 0;
 }
