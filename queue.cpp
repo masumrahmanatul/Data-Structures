@@ -11,6 +11,8 @@ void inqueue(int x)
     if(front == rear == -1)
     {
         cout<<"The queue is Empty."<<endl;
+        rear++;
+        array[rear] = x;
     }
     else if(rear == N-1)
     {
