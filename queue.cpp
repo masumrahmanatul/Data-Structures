@@ -90,4 +90,6 @@ int main()
     dequeue(); display();
     dequeue(); display();
     dequeue(); display();
+
+    return 0;
 }
