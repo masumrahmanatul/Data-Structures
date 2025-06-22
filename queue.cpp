@@ -8,7 +8,7 @@ int rear = -1;
 
 void inqueue(int x)
 {
-    if(front == rear == -1)
+    if(front == -1 && rear == -1)
     {
         front = rear = 0;
         array[rear] = x;
@@ -19,10 +19,6 @@ void inqueue(int x)
     }
     else
     {
-        if(front == -1)
-        {
-            front++;
-        }
         rear++;
         array[rear] = x;
     }
@@ -43,7 +39,7 @@ int dequeue()
 
 void display()
 {
-    if(front == rear == -1)
+    if(front == -1 && rear == -1)
     {
         cout<<"Queue is Empty."<<endl;
     }
@@ -63,7 +59,7 @@ void display()
 
 void peek()
 {
-    if(front == rear == -1)
+    if(front == -1 && rear == -1)
     {
         cout<<"Queue is Empty."<<endl;
     }
